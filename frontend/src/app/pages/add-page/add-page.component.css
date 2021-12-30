@@ -1,0 +1,26 @@
+.add-container {
+  display: grid;
+  justify-content:center;
+}
+
+mat-card {
+  width: 70vw;
+  align-items: center;
+}
+
+.add-form {
+  width: 100%;
+}
+
+.add-button {
+  display: inline-block;
+  height: 52px;
+  width: 20%;
+  float: right;
+
+}
+
+mat-form-field  {
+  width: 80%;
+  display: inline-block;
+}

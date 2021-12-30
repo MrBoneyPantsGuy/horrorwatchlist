@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>TheList</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Muli', sans-serif;
+            background: darkcyan;
+        }
+
+        #main {
+            display: grid;
+            width: 100%;
+            height: calc(100vh - 46px);
+            justify-content: center;
+            align-content: center;
+        }
+
+        #title {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .Input {
+            position: relative;
+            width: 75vw;
+        }
+
+        .Input-text {
+            display: block;
+            margin: 0;
+            padding: 0.8rem 1.6rem;
+            color: inherit;
+            width: calc(100% - 3.2rem);
+            font-size: 1.5rem;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: 1.8;
+            border: none;
+            border-radius: 0.4rem;
+            transition: box-shadow 300ms;
+        }
+
+        .Input-text::placeholder {
+            color: #B0BEC5;
+        }
+
+        .Input-text:focus {
+            outline: none;
+            box-shadow: 0.2rem 0.8rem 1.6rem #6b1414;
+        }
+
+        .Input-label {
+            display: block;
+            position: absolute;
+            opacity: 0;
+        }
+
+        header > ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        header > ul > li {
+            float: left;
+        }
+
+        header > ul > li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change the link color to #111 (black) on hover */
+        header > ul > li a:hover {
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="./add.html">Add movies to the list</a></li>
+            <li><a href="random.html">Get random movies from the list</a></li>
+            <li><a href="get.html">Show all movies from the list</a></li>
+        </ul>
+    </header>
+    <div id="main">
+        <h1 id="title">Midnight Murder Madness Kill-List-Carnival of Bloody Horror Terror</h1>
+        <div id="center">
+            <div class="Input">
+                <label class="Input-label" for="imdbLink">IMDB-Link</label>
+                <input id="imdbLink" class="Input-text" type="text" placeholder="https://www.imdb.com/title/tt10838180/?ref_=nv_sr_srsg_0">
+                <div id="info"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    "use strict";
+
+    const d = document;
+
+    const login = async () => {
+        let params = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'username': "sebastian",
+                'passwordHash': "8df6551d2c2c997288cec7d7b80ffedf98827ed9e506331fe3aaca8c7c58d5db"
+            }),
+            credentials: "include"
+        }
+
+        let logres = fetch('http://localhost:8080/api/login', params).then(res => res.text());
+        let promises = [logres];
+        Promise.allSettled(promises).then( (results) => results.forEach((res) => {
+            console.log(res.value);
+        }));
+    }
+
+    const addMovie = async () => {
+        const url = d.getElementById('imdbLink').value;
+        const info = d.getElementById('info');
+        let params = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'url': url,
+            }),
+            credentials: "include"
+        }
+        let result = await fetch('http://localhost:8080/api/movies', params).then(res => res.text());
+        let promises = [result];
+        Promise.allSettled(promises).then( (results) => results.forEach((res) => {
+            info.innerHTML = res.value;
+        }));
+    }
+
+    d.getElementById('imdbLink').addEventListener("keypress", (e) => {
+        if(e.key === 'Enter') {
+            login().then(
+                addMovie
+            )
+        }
+    });
+
+</script>
+</html>

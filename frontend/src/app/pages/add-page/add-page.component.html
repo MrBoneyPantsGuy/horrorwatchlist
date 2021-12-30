@@ -1,0 +1,14 @@
+
+<div class="add-container">
+  <h1>Add a new Movie to the List</h1>
+  <mat-card>
+    <form class="add-form">
+      <mat-form-field appearance="fill">
+        <mat-label>IMDB-Link</mat-label>
+        <input type="url" [(ngModel)]="imdbLink" name="link" matInput> <!-- [(ngModel)] creates a two-way binding between input & variable -->
+      </mat-form-field>
+      <button class="add-button" (click)="addMovie()" mat-raised-button color="primary">Add Movie!</button> <!-- (click) creates a one-way output-binding, which is invoked by click events  -->
+      <div class="error" *ngIf="error">{{error}}</div>
+    </form>
+  </mat-card>
+</div>

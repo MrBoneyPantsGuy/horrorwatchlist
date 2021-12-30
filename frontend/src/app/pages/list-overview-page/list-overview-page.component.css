@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+}
+
+button {
+  z-index: 10;
+}
+
+.refresh-icon {
+  float: right;
+  display: inline;
+  cursor: pointer;
+}
+
+.refresh-spinner {
+  float: right;
+  display: inline;
+}
+
+.toggle {
+  float: right;
+  display: inline;
+}
