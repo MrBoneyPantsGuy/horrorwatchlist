@@ -13,8 +13,8 @@ export class MovieService {
 
   constructor(http:HttpClient) {this.client=http;}
 
-  getAllMovies():Observable<HttpResponse<Movie[]>>{
-    return this.client.get<Movie[]>('/api/movies', {observe: 'response'});
+  getAllMovies():Observable<Movie[]>{ // fetches all Movies on the list from the backend, interprets the result as Movie[] and returns it as an observable
+    return this.client.get<Movie[]>('/api/movies');
   }
 
   getAllUnwatchedMovies():Observable<HttpResponse<Movie[]>> {

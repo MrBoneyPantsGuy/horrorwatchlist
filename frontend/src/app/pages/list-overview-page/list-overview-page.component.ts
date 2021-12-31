@@ -13,8 +13,8 @@ import {MatSort} from '@angular/material/sort';
 export class ListOverviewPageComponent implements OnInit {
   movieservice: MovieService;
   displayWatched: boolean = false;
-  movies: Movie[] = [];
-  dataSource: MatTableDataSource<Movie>; //TODO: make dataSource observable
+  allMovies: Movie[];
+  dataSource: MatTableDataSource<Movie> = new MatTableDataSource<Movie>();
   columnsToDisplay = ['position', 'title', 'year', 'director', 'runtime', 'rating', 'votes', 'poster', 'action'];
 
   @ViewChild(MatTable) table: MatTable<Movie>;
@@ -24,35 +24,32 @@ export class ListOverviewPageComponent implements OnInit {
     this.movieservice = new MovieService(http);
   }
 
-  async ngOnInit() {}
+  async ngOnInit() {
+    await this.movieservice.getAllMovies().subscribe(movies => this.dataSource.data = movies);
+    this.dataSource.sort = this.sort;
+  }
 
   async ngAfterViewInit() {
-    await this.movieservice.getAllMovies().toPromise().then(res => res.body).then(movies => movies.forEach(movie => this.movies.push(new Movie(movie.id, movie.title, movie.year, movie.runtime, movie.director, movie.rating, movie.imdbLink, movie.posterLink, movie.watched, movie.personalRating, movie.votes, movie.genre, movie.plot, movie.actors))));
-    this.dataSource = new MatTableDataSource<Movie>(this.movies);
-    this.dataSource.sort = this.sort;
-    //this.table.renderRows();
+
   }
 
   public async refresh(id) {
     await this.movieservice.refreshMovie(id).toPromise().then(res => res.body).then(movie => {
-      // component doesnt care so far about updating the content without page refresh, so next 5 lines are basically useless right now
       const tmpMovie = new Movie(movie.id, movie.title, movie.year, movie.runtime, movie.director, movie.rating, movie.imdbLink, movie.posterLink, movie.watched, movie.personalRating, movie.votes, movie.genre, movie.plot, movie.actors);
-      let index = this.movies.findIndex(item => item.id === tmpMovie.id);
-      this.movies[index] = tmpMovie;
-      this.dataSource[index] = tmpMovie;
-      this.table.renderRows();
-      location.reload();
+      let index = this.dataSource.data.findIndex(item => item.id === tmpMovie.id);
+      this.dataSource.data[index] = tmpMovie;
+      this.dataSource = new MatTableDataSource<Movie>(this.dataSource.data);
     });
   }
 
   public async delete(id) {
-    await this.movieservice.deleteMovie(id).toPromise().then(() => {
-      location.reload()
-    });
+    let index = this.dataSource.data.findIndex(movie => movie.id === id);
+    this.dataSource.data.splice(index, 1);
+    this.dataSource = new MatTableDataSource<Movie>(this.dataSource.data);
+    await this.movieservice.deleteMovie(id);
   }
 
   async toggleDisplay() {
     this.displayWatched = !this.displayWatched;
-    this.dataSource.data = this.dataSource.data.filter(row => this.displayWatched ? row.watched === true || row.watched === false : row.watched === false);
   }
 }

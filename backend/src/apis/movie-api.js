@@ -102,6 +102,7 @@ exports.deleteMovie = async (req, res) => {
     res.status(200).end(`Movie ${id} deleted!`);
 }
 
+// TODO: implement MovieState Object
 exports.updateMovieState = async (req, res) => {
     let movieList = req.app.get('movieList');
     const state = req.body;

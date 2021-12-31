@@ -23,7 +23,7 @@ const sample = (pool, k, destructive) => {
 }
 
 exports.selectThreeRandomMovies = async (movieList) => {
-    let destroyableList = movieList.slice();                // clone array by value
-    return sample(destroyableList, 3, true);    // destructive algorithm always works
+    let destroyableList = movieList.slice().filter(movie => movie.watched === false);       // clone array by value and filter watched movies
+    return sample(destroyableList, 3, true);                                    // destructive algorithm always works
 }
 
