@@ -46,7 +46,7 @@ export class ListOverviewPageComponent implements OnInit {
     let index = this.dataSource.data.findIndex(movie => movie.id === id);
     this.dataSource.data.splice(index, 1);
     this.dataSource = new MatTableDataSource<Movie>(this.dataSource.data);
-    await this.movieservice.deleteMovie(id);
+    await this.movieservice.deleteMovie(id).toPromise();
   }
 
   async toggleDisplay() {

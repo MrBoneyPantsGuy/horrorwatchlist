@@ -23,10 +23,10 @@ exports.addMovie = async (req, res) => {
         } else { // setup api-request to fetch movie data
             let options = {
                 method: 'GET',
-                url: 'https://movie-database-imdb-alternative.p.rapidapi.com/',
+                url: 'https://movie-database-alternative.p.rapidapi.com/',
                 params: {r: 'json', i: id},
                 headers: {
-                    'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
+                    'x-rapidapi-host': 'movie-database-alternative.p.rapidapi.com',
                     'x-rapidapi-key': 'f115671c5cmshb030ae0d1d2e45cp1d9dfdjsn882285af335a'
                 }
             };
@@ -92,6 +92,7 @@ exports.getThreeRandomMovies = async (req, res) => {
 exports.deleteMovie = async (req, res) => {
     let movieList = req.app.get('movieList');
     const id = req.params.id;
+    const deletedMovie = movieList.find(element => element.id === id);
 
     movieList = movieList.filter( (obj) => {
         return obj.id !== id;
@@ -99,7 +100,7 @@ exports.deleteMovie = async (req, res) => {
     req.app.set('movieList', movieList);
     storage.saveConfig(movieList);
     console.log(`Movie ${id} deleted!`);
-    res.status(200).end(`Movie ${id} deleted!`);
+    res.status(200).send(deletedMovie);
 }
 
 // TODO: implement MovieState Object
@@ -124,10 +125,10 @@ exports.refreshMovie = async (req, res) => {
     } else {
         let options = {
             method: 'GET',
-            url: 'https://movie-database-imdb-alternative.p.rapidapi.com/',
+            url: 'https://movie-database-alternative.p.rapidapi.com/',
             params: {r: 'json', i: id},
             headers: {
-                'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
+                'x-rapidapi-host': 'movie-database-alternative.p.rapidapi.com',
                 'x-rapidapi-key': 'f115671c5cmshb030ae0d1d2e45cp1d9dfdjsn882285af335a'
             }
         };

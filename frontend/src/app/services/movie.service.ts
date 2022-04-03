@@ -33,7 +33,7 @@ export class MovieService {
     return this.client.put<Movie>('/api/movies/id', {id: id}, {observe: 'response'});
   }
 
-  deleteMovie(id):Observable<HttpResponse<any>> {
-    return this.client.delete(`/api/movies/${id}`, {observe: "response", responseType: 'text'});
+  deleteMovie(id):Observable<Movie> {
+    return this.client.delete<Movie>(`/api/movies/${id}`);
   }
 }
