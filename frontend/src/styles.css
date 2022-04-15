@@ -5,6 +5,8 @@
 
 body{
   margin: 0;
+  background: #232121;
+  color: white;
 }
 
 mat-card{

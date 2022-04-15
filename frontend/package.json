@@ -4,7 +4,7 @@
   "author": "Sebastian Lysek <sebastian.lysek@smail.inf.h-brs.de>",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 192.168.178.21 --proxy-config proxy.conf.json",
+    "start": "ng serve --host 192.168.178.35 --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

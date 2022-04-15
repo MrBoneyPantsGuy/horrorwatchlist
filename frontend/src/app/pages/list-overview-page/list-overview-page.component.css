@@ -1,5 +1,15 @@
 table {
   width: 100%;
+  background: #555555;
+}
+
+.mat-cell, .mat-header-cell {
+  color: white;
+  border-bottom: 1px solid #82919f;
+}
+
+.mat-sort-header-indicator {
+  color: white !important;
 }
 
 button {

@@ -8,16 +8,17 @@ h1{
   padding: 10px;
   font-weight: 600;
 }
+mat-card-actions{
+  margin-top: auto;
+}
 .container{
   padding: 30px;
 }
-
 .example-card{
   text-align: center;
   border-radius: 20px;
 }
 .mat-raised-button{
-
   line-height: 54px !important;
   font-size: 20px;
 }
@@ -28,20 +29,16 @@ h1{
   background: #0F2027;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
 }
 .bg-2,.btn-2{
   background: #FDC830;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 .bg-3,.btn-3{
   background: #673AB7;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #512DA8, #673AB7);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #512DA8, #673AB7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 .mat-card-header, .mat-list-base .mat-list-item .mat-list-item-content{
   display: block !important;
@@ -53,12 +50,10 @@ h3,.mat-card-subtitle,.mat-raised-button{
 .mat-card:not([class*=mat-elevation-z]){
   box-shadow: none !important ;
 }
-
 .mat-card-title{
   padding-top: 20px;
   font-size: 28px !important;
   margin: 0 !important;
-
 }
 .mat-card-subtitle{
   font-size: 30px !important;
@@ -70,9 +65,12 @@ h3,.mat-card-subtitle,.mat-raised-button{
 .mat-card{
   border-radius: 8px !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+  height: calc(95% - 16px);
+  display: flex;
+  flex-direction: column;
 }
 .mat-card:hover {
-  box-shadow: 0 0 11px rgba(33,33,33,.5) !important;
+  box-shadow: 0 0 11px rgba(244,244,244,.9) !important;
 }
 .mb-20{
   margin-bottom: 20px !important;
@@ -87,7 +85,6 @@ h3{
 }
 @media(min-width:820px){
   .main{
-
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
@@ -96,27 +93,28 @@ h3{
   .column{
     width: 30%;
     margin: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 3px solid white;
   }
   .watching {
-    border-radius: 8px;
+    border-radius: 12px;
     border: 3px solid greenyellow;
   }
-
   .show {
     display: inline-block;
   }
-
   .hide {
     display: none;
   }
-
   .lock {
     position: absolute !important;
     right: 5px;
     top: 5px;
     color: white;
     cursor: pointer;
+  }
+
+  button {
+    width: 200px;
   }
 }
