@@ -42,7 +42,7 @@ node_modules
 /frontend/yarn-error.log
 /frontend/testem.log
 /frontend/typings
-/frontend/.angular
+/frontend/.angular/cache
 
 # System Files
 /frontend/.DS_Store
