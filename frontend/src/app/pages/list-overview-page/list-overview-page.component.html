@@ -19,7 +19,7 @@
   </ng-container>
   <ng-container matColumnDef="runtime">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Runtime</th>
-    <td mat-cell *matCellDef="let element">{{element.runtime}}</td>
+    <td mat-cell *matCellDef="let element">{{element.runtime}} min</td>
   </ng-container>
   <ng-container matColumnDef="rating">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Rating</th>
@@ -27,7 +27,7 @@
   </ng-container>
   <ng-container matColumnDef="votes">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Votes</th>
-    <td mat-cell *matCellDef="let element">{{element.votes}}</td>
+    <td mat-cell *matCellDef="let element">{{ element.votes | number:'':'de-DE'}}</td>
   </ng-container>
   <ng-container matColumnDef="poster">
     <th mat-header-cell *matHeaderCellDef>Poster</th>

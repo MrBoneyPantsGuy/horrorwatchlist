@@ -37,6 +37,9 @@ exports.addMovie = async (req, res) => {
                     console.log(values.Error)
                     res.status(500).send(values.Error);
                 } else {
+                    values.Runtime = values.Runtime.substring(0, values.Runtime.length - 4);    // remove " min" from runtime value
+                    values.imdbVotes = values.imdbVotes.replace(",", "");
+                    values.imdbVotes = parseInt(values.imdbVotes);
                     let movie = new Movie(values.imdbID, values.Title, values.Year, values.Director, values.imdbRating, values.Runtime, req.body.url, values.Poster, false, {}, values.imdbVotes, values.Genre, values.Plot, values.Actors);
                     movieList.push(movie);
                     req.app.set('movieList', movieList);
@@ -154,6 +157,9 @@ exports.refreshMovie = async (req, res) => {
                 console.log(values.Error)
                 res.status(500).send(values.Error);
             } else {
+                values.Runtime = values.Runtime.substring(0, values.Runtime.length - 4);    // remove " min" from runtime value
+                values.imdbVotes = values.imdbVotes.replace(",", "");
+                values.imdbVotes = parseInt(values.imdbVotes);
                 let movie = new Movie(values.imdbID, values.Title, values.Year, values.Director, values.imdbRating, values.Runtime, `https://www.imdb.com/title/${id}`, values.Poster, movieList[foundIndex].watched, movieList[foundIndex].personalRating, values.imdbVotes, values.Genre, values.Plot, values.Actors);
                 movieList[foundIndex] = movie;
                 req.app.set('movieList', movieList);

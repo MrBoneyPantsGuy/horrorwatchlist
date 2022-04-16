@@ -4,6 +4,9 @@ import {Movie} from '../../models/Movie';
 import {HttpClient} from '@angular/common/http';
 import {MatTable, MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+import localeDeExtra from '@angular/common/locales/extra/de';
 
 @Component({
   selector: 'app-list-overview-page',
@@ -23,6 +26,7 @@ export class ListOverviewPageComponent implements OnInit, AfterViewInit {
 
   constructor(http: HttpClient) {
     this.movieservice = new MovieService(http);
+    registerLocaleData(localeDe, 'de-DE', localeDeExtra);
   }
 
   // tslint:disable-next-line:typedef

@@ -8,12 +8,23 @@ table {
   border-bottom: 1px solid #82919f;
 }
 
+.mat-header-cell {
+  font-size: 16px;
+}
+
 .mat-sort-header-indicator {
   color: white !important;
 }
 
+.mat-header-row {
+  position: sticky;
+  top: 64px;
+  z-index:20;
+}
+
 button {
   z-index: 10;
+  margin-right: 10px;
 }
 
 .refresh-icon {
