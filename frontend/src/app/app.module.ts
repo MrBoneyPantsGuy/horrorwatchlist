@@ -27,6 +27,7 @@ import {ClipboardModule} from "ngx-clipboard";
 import { ReviewPageComponent } from './pages/review-page/review-page.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -42,24 +43,25 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     ListOverviewPageComponent,
     ReviewPageComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRouting,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatTableModule,
-        MatSortModule,
-        MatListModule,
-        ClipboardModule,
-        MatProgressSpinnerModule,
-        MatSlideToggleModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRouting,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatTableModule,
+    MatSortModule,
+    MatListModule,
+    ClipboardModule,
+    MatProgressSpinnerModule,
+    MatSlideToggleModule,
+    MatGridListModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

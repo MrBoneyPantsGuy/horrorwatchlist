@@ -1,1 +1,20 @@
-<h1>TODO: List all watched movies without a review</h1>
+<h1>Write a review</h1>
+<mat-grid-list cols="4" rowHeight="1:1.3" [gutterSize]="'20px'">
+  <mat-grid-tile *ngFor="let movie of allMovies">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{movie.title}}</mat-card-title>
+        <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{movie.posterLink}}" width="100px" height="auto" alt="Movie Poster">
+      <mat-card-content>
+        <p>{{movie.plot}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Review</button>
+        <button mat-raised-button color="default">Edit</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+

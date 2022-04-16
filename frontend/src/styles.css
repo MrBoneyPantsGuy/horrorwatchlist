@@ -7,14 +7,13 @@ body{
   margin: 0;
   background: #232121;
   color: white;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-y: scroll;
 }
 
 mat-card{
   padding: 24px !important;
 }
-
-html, body {}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 code{
   background: #00000010;
