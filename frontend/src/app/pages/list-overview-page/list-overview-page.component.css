@@ -27,6 +27,14 @@ button {
   display: inline;
 }
 
+.show {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
+
 .toggle {
   float: right;
   display: inline;

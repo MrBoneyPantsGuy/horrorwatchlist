@@ -31,21 +31,12 @@ export class RandomSelectionPageComponent implements OnInit {
     this._clipboardService.copy(text);
   }
 
-  async setWatched(id): Promise<any> {
+  async toggle(id): Promise<any> {
     const index = this.movies.findIndex(movie => movie.id === id);
+    await this.movieservice.toggleMovie(id).toPromise().then( (response) => console.log(response.body));
     // wait for fancy button-click animation to finish
     setTimeout( () => {
-      this.watched[index] = true;
+      this.watched[index] = !this.watched[index];
     }, 300);
-    console.log('Implement watched...');
-  }
-
-  async unwatch(id): Promise<any> {
-    const index = this.movies.findIndex(movie => movie.id === id);
-    // wait for fancy button-click animation to finish
-    setTimeout( () => {
-      this.watched[index] = false;
-    }, 300);
-    console.log('Implement unwatch...');
   }
 }

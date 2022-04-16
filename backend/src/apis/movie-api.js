@@ -103,6 +103,21 @@ exports.deleteMovie = async (req, res) => {
     res.status(200).send(deletedMovie);
 }
 
+exports.watchMovie = async (req, res) => {
+    let movieList = req.app.get('movieList');
+    const id = req.body.id;
+    let foundIndex = movieList.findIndex(movie => movie.id === id);
+    if(foundIndex === -1) {
+        console.log("No such movie on the list!");
+        res.status(404).send("No such movie on the list!");
+    } else {
+        movieList[foundIndex].watched = !movieList[foundIndex].watched;
+        req.app.set('movieList', movieList);
+        storage.saveConfig(movieList);
+        res.status(200).send(movieList[foundIndex]);
+    }
+}
+
 // TODO: implement MovieState Object
 exports.updateMovieState = async (req, res) => {
     let movieList = req.app.get('movieList');

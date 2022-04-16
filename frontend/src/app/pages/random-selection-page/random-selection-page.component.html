@@ -19,8 +19,8 @@
           </mat-list-->
         </mat-card-content>
         <mat-card-actions>
-          <button [watched]="watched" [class.show]="watched[i] == false" [class.hide]="watched[i] == true" mat-raised-button class="mb-20 btn-{{i+1}}" ngxClipboard [cbContent]="movie.title" (click)="setWatched(movie.id)">Watch now</button>
-          <button [watched]="watched" [class.show]="watched[i] == true" [class.hide]="watched[i] == false" mat-raised-button class="mb-20 btn-{{i+1}}" (click)="unwatch(movie.id)">Unwatch</button>
+          <button [class.show]="watched[i] == false" [class.hide]="watched[i] == true" mat-raised-button class="mb-20 btn-{{i+1}}" ngxClipboard [cbContent]="movie.title" (click)="toggle(movie.id)">Watch now</button>
+          <button [class.show]="watched[i] == true" [class.hide]="watched[i] == false" mat-raised-button class="mb-20 btn-{{i+1}}" (click)="toggle(movie.id)">Unwatch</button>
         </mat-card-actions>
       </mat-card>
     </div>

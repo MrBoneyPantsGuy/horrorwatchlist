@@ -34,11 +34,13 @@
     <td mat-cell *matCellDef="let element"><a href="{{element.imdbLink}}" target="_blank"><img src="{{element.posterLink}}" width="100px" height="auto"></a></td>
   </ng-container>
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef>Action</th>
-    <td mat-cell *matCellDef="let element">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let element; let i = index;">
       <button mat-raised-button color="warn" (click)="delete(element.id)">Delete</button>
-      <mat-icon id="refreshing" class="refresh-icon" (click)="refresh(element.id)">refresh</mat-icon>
-      <!--mat-spinner class="refresh-spinner" diameter="25"></mat-spinner-->
+      <button [class.show]="element.watched == false" [class.hide]="element.watched == true" mat-raised-button color="primary" (click)="toggle(element.id)">Watch</button>
+      <button [class.show]="element.watched == true" [class.hide]="element.watched == false" mat-raised-button color="primary" (click)="toggle(element.id)">Unwatch</button>
+      <mat-icon [class.show]="refreshing[i] == false" [class.hide]="refreshing[i] == true" class="refresh-icon" (click)="refresh(element.id, i)">refresh</mat-icon>
+      <mat-spinner [class.show]="refreshing[i] == true" [class.hide]="refreshing[i] == false" id="refresh-spinner " class="refresh-spinner" color="default" diameter="24"></mat-spinner>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
