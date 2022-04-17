@@ -1,22 +1,26 @@
-:root{
+:root {
   font-family: sans-serif;
   box-sizing: border-box;
 }
 
-body{
+body {
   margin: 0;
   background: #232121;
   color: white;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  overflow-y: scroll;
 }
 
-mat-card{
+mat-card {
   padding: 24px !important;
 }
 
-code{
+code {
   background: #00000010;
   border-radius: 4px;
   padding: 3px;
+}
+
+mat-dialog-container {
+  background: #2f2e2e !important;
+  color: white !important;
 }

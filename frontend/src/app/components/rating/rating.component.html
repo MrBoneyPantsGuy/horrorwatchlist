@@ -1,0 +1,9 @@
+<div class="container">
+  <h2 matTooltip="{{tooltip}}" matTooltipPosition="right">{{category}}</h2>
+  <button mat-icon-button class="mat-orange" *ngFor="let ratingId of ratingArray; index as i" [id]="'star_'+i" (click)="calculateRating(i+1)">
+    <mat-icon>
+      {{ iconStatus(i) }}
+    </mat-icon>
+  </button>
+  <span class="right"><span>{{ rating }}</span>/<span>{{ totalStar }}</span></span>
+</div>

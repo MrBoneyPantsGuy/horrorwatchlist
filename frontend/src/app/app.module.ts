@@ -6,28 +6,32 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import {MatCardModule} from "@angular/material/card";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { ExamplePageComponent } from './pages/example-page/example-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { AddPageComponent } from './pages/add-page/add-page.component';
 import { RandomSelectionPageComponent } from './pages/random-selection-page/random-selection-page.component';
 import { ListOverviewPageComponent } from './pages/list-overview-page/list-overview-page.component';
-import {MatTableModule} from "@angular/material/table";
-import {MatSortModule} from "@angular/material/sort";
-import {MatListModule} from "@angular/material/list";
-import {ClipboardModule} from "ngx-clipboard";
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatListModule} from '@angular/material/list';
+import {ClipboardModule} from 'ngx-clipboard';
 import { ReviewPageComponent } from './pages/review-page/review-page.component';
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {MatGridListModule} from "@angular/material/grid-list";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ReviewDialogComponent } from './components/review-dialog/review-dialog.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -41,27 +45,31 @@ import {MatGridListModule} from "@angular/material/grid-list";
     AddPageComponent,
     RandomSelectionPageComponent,
     ListOverviewPageComponent,
-    ReviewPageComponent
+    ReviewPageComponent,
+    ReviewDialogComponent,
+    RatingComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRouting,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatTableModule,
-    MatSortModule,
-    MatListModule,
-    ClipboardModule,
-    MatProgressSpinnerModule,
-    MatSlideToggleModule,
-    MatGridListModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRouting,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCardModule,
+        MatDialogModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatTableModule,
+        MatSortModule,
+        MatListModule,
+        ClipboardModule,
+        MatProgressSpinnerModule,
+        MatSlideToggleModule,
+        MatGridListModule,
+        MatTooltipModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

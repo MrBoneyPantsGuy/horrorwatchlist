@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Write a Review for {{data.title}}</h2>
+<button mat-raised-button (click)="toggleReveal();" class="reveal">
+  <mat-icon [class.show]="reveal == false" [class.hide]="reveal == true">remove_red_eye</mat-icon>
+  <span [class.show]="reveal == true" [class.hide]="reveal == false">{{average}}</span>
+</button>
+<mat-dialog-content>
+  <app-rating *ngFor="let rating of ratings; let i = index;" [rating]="rating.value" [category]="rating.category" [icons]="rating.icons" [tooltip]="rating.tooltip" (ratingUpdated)="onRatingChanged($event, i)"></app-rating>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+  <button mat-raised-button color="default" (click)="cancel()">Cancel</button>
+</mat-dialog-actions>

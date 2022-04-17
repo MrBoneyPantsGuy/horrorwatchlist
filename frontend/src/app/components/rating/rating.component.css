@@ -1,0 +1,16 @@
+h2 {
+  margin-bottom: 0;
+}
+
+.container {
+  border-bottom: 2px solid #858585;
+}
+
+.mat-orange {
+  color: #ffa833 !important;
+}
+
+.right {
+  font-size: 14px;
+  float: right;
+}

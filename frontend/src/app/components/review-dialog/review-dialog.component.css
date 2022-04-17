@@ -1,0 +1,16 @@
+.show {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
+
+.reveal {
+  display: inline-block;
+  float: right;
+}
+
+h2 {
+  display: inline-block;
+}

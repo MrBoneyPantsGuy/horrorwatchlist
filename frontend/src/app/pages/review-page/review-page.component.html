@@ -1,5 +1,5 @@
 <h1>Write a review</h1>
-<mat-grid-list cols="4" rowHeight="1:1.3" [gutterSize]="'20px'">
+<mat-grid-list [cols]="breakpoint" rowHeight="1:1.5" [gutterSize]="'20px'" (window:resize)="onResize($event)">
   <mat-grid-tile *ngFor="let movie of allMovies">
     <mat-card>
       <mat-card-header>
@@ -11,8 +11,7 @@
         <p>{{movie.plot}}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button color="primary">Review</button>
-        <button mat-raised-button color="default">Edit</button>
+        <button mat-raised-button color="primary" (click)="openDialog(movie);">Review</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
