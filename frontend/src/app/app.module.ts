@@ -32,6 +32,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ReviewDialogComponent } from './components/review-dialog/review-dialog.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         MatProgressSpinnerModule,
         MatSlideToggleModule,
         MatGridListModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatTabsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

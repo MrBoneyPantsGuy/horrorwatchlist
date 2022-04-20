@@ -33,6 +33,8 @@ export class ReviewDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const Cyst = [5.5, 4.5, 5.0, 5.0, 3.5];
+    const FinalRide = [3.0, 3.0, 4.0, 3.5, 4.0];
   }
 
   onRatingChanged(rating: number, index: number): void {

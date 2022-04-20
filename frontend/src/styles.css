@@ -24,3 +24,7 @@ mat-dialog-container {
   background: #2f2e2e !important;
   color: white !important;
 }
+
+.mat-tab-label {
+  color: white !important;
+}

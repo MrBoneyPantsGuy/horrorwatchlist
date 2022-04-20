@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {LoginPageComponent} from "./pages/login-page/login-page.component";
-import {LandingPageComponent} from "./pages/landing-page/landing-page.component";
-import {AuthGuardService} from "./services/auth-guard.service";
-import {ExamplePageComponent} from "./pages/example-page/example-page.component";
-import {AddPageComponent} from "./pages/add-page/add-page.component";
-import {ListOverviewPageComponent} from "./pages/list-overview-page/list-overview-page.component";
-import {RandomSelectionPageComponent} from "./pages/random-selection-page/random-selection-page.component";
-import {NotFoundPageComponent} from "./pages/not-found-page/not-found-page.component";
-import {ReviewPageComponent} from "./pages/review-page/review-page.component";
+import {LoginPageComponent} from './pages/login-page/login-page.component';
+import {LandingPageComponent} from './pages/landing-page/landing-page.component';
+import {AuthGuardService} from './services/auth-guard.service';
+import {ExamplePageComponent} from './pages/example-page/example-page.component';
+import {AddPageComponent} from './pages/add-page/add-page.component';
+import {ListOverviewPageComponent} from './pages/list-overview-page/list-overview-page.component';
+import {RandomSelectionPageComponent} from './pages/random-selection-page/random-selection-page.component';
+import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
+import {ReviewPageComponent} from './pages/review-page/review-page.component';
 
 /*
   This array holds the relation of paths and components which angular router should resolve.
@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'select', component: RandomSelectionPageComponent, canActivate: [AuthGuardService]},
   {path: 'review', component: ReviewPageComponent, canActivate: [AuthGuardService]},
   {path: '', component: LandingPageComponent, canActivate: [AuthGuardService]},
-  {path:'**', component: NotFoundPageComponent} //these entries are matched from top to bottom => not found should be the last entry
+  {path: '**', component: NotFoundPageComponent} // these entries are matched from top to bottom => not found should be the last entry
 ];
 
 @NgModule({
