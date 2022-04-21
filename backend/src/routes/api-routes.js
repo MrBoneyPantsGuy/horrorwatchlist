@@ -16,7 +16,7 @@ router.get('/movies/unwatched', checkAuthorization(), movieApi.getUnwatchedMovie
 router.get('/movies/id', checkAuthorization(), movieApi.getMovieById);              // get a single movie by its id from send body {id: id}
 router.get('/movies/random', checkAuthorization(), movieApi.getThreeRandomMovies);  // get three random movies from the list
 router.post('/movies', checkAuthorization(), movieApi.addMovie);                    // add a movie with its imdb url
-router.post('/movies/id', checkAuthorization(), movieApi.updateMovieState);         // update the state of a Movie like watched and personalRating
+router.post('/movies/id', checkAuthorization(), movieApi.insertPersonalReview);     // insert personalRating into movie
 router.put('/movies/toggle/id', checkAuthorization(), movieApi.watchMovie);         // watch or unwatch a movie via its ID
 router.put('/movies/id', checkAuthorization(), movieApi.refreshMovie);              // refresh a movies changing data like votes and rating, but keep the personally stored values
 router.delete('/movies/:id', checkAuthorization(), movieApi.deleteMovie);           // angular httpclient.delete() does not support sending a body => using path variable instead

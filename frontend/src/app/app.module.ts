@@ -33,6 +33,7 @@ import { ReviewDialogComponent } from './components/review-dialog/review-dialog.
 import { RatingComponent } from './components/rating/rating.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ReviewCalcComponent } from './components/review-calc/review-calc.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     ListOverviewPageComponent,
     ReviewPageComponent,
     ReviewDialogComponent,
-    RatingComponent
+    RatingComponent,
+    ReviewCalcComponent
   ],
     imports: [
         BrowserModule,

@@ -41,4 +41,8 @@ export class MovieService {
   toggleMovie(id): Observable<HttpResponse<Movie>> {
     return this.client.put<Movie>('/api/movies/toggle/id', {id: id}, {observe: 'response'});
   }
+
+  insertMovieReview(movie: Movie): Observable<Movie> {
+    return this.client.post<Movie>('/api/movies/id', {id: movie.id, personalRating: movie.personalRating});
+  }
 }

@@ -21,6 +21,21 @@
   </mat-tab>
   <mat-tab label="Check Reviews">
     <h1>Check all reviews</h1>
+    <mat-grid-list [cols]="breakpoint" rowHeight="1:1.5" [gutterSize]="'20px'" (window:resize)="onResize($event)">
+      <mat-grid-tile *ngFor="let movie of allReviews">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{movie.title}}</mat-card-title>
+            <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{movie.posterLink}}" width="100px" height="auto" alt="Movie Poster">
+          <mat-card-content>
+            <p>{{movie.plot}}</p>
+            <app-review-calc [config]="movie.personalRating.config"></app-review-calc>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
   </mat-tab>
 </mat-tab-group>
 

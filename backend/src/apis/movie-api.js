@@ -121,16 +121,16 @@ exports.watchMovie = async (req, res) => {
     }
 }
 
-// TODO: implement MovieState Object
-exports.updateMovieState = async (req, res) => {
+exports.insertPersonalReview = async (req, res) => {
     let movieList = req.app.get('movieList');
-    const state = req.body;
-    let foundIndex = movieList.findIndex(movie => movie.id === tmpMovie.id);
-    movieList[foundIndex] = tmpMovie;
+    const id = req.body.id;
+    const rating = req.body.personalRating;
+    let foundIndex = movieList.findIndex(movie => movie.id === id);
+    movieList[foundIndex].personalRating = rating;
     req.app.set('movieList', movieList);
-    //storage.saveConfig(movieList);
-    console.log(`Movie ${tmpMovie.id} state changed!`);
-    res.status(200).end(`Movie ${tmpMovie.id} state changed!`);
+    storage.saveConfig(movieList);
+    console.log(`Review for ${movieList[foundIndex].title} added!`);
+    res.status(200).send(movieList[foundIndex]);
 }
 
 exports.refreshMovie = async (req, res) => {

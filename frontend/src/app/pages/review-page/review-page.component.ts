@@ -13,6 +13,7 @@ import {ReviewDialogComponent} from '../../components/review-dialog/review-dialo
 export class ReviewPageComponent implements OnInit {
   movieservice: MovieService;
   allMovies: Movie[];
+  allReviews: Movie[];
   breakpoint: number;
 
   constructor(http: HttpClient, public dialog: MatDialog) {
@@ -22,7 +23,10 @@ export class ReviewPageComponent implements OnInit {
   async ngOnInit(): Promise<any> {
     this.breakpoint = (window.innerWidth <= 1800) ? (window.innerWidth <= 1500) ? 3 : 4 : 5;
     this.movieservice.getAllMovies().subscribe(movies => this.allMovies = movies, (error) => console.log(error), () => {
-      this.allMovies = this.allMovies.filter( movie => movie.watched === true && movie.personalRating);
+      this.allMovies = this.allMovies.filter( movie => movie.watched === true && Object.keys(movie.personalRating).length === 0);
+    });
+    this.movieservice.getAllMovies().subscribe(movies => this.allReviews = movies, (error) => console.log(error), () => {
+      this.allReviews = this.allReviews.filter( movie => movie.watched === true && Object.keys(movie.personalRating).length > 0);
     });
   }
 
@@ -38,7 +42,12 @@ export class ReviewPageComponent implements OnInit {
 
    dialogRef.afterClosed().subscribe(result => {
      if (result) {
-       console.log(result);
+       // tslint:disable-next-line:no-shadowed-variable
+       this.movieservice.insertMovieReview(result).subscribe(movie => {
+         const index = this.allMovies.findIndex(element => element.id === movie.id);      // find the index of the movie
+         this.allReviews.push(this.allMovies[index]);                                     // push reviewed movie into reviews
+         this.allMovies.splice(index, 1);                                       // delete reviewed movie from movies without review
+       });
      }
    });
   }
