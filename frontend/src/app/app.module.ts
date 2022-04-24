@@ -34,6 +34,7 @@ import { RatingComponent } from './components/rating/rating.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ReviewCalcComponent } from './components/review-calc/review-calc.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ReviewCalcComponent } from './components/review-calc/review-calc.compon
         MatSlideToggleModule,
         MatGridListModule,
         MatTooltipModule,
-        MatTabsModule
+        MatTabsModule,
+        MatExpansionModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -42,6 +42,7 @@ export class ReviewPageComponent implements OnInit {
 
    dialogRef.afterClosed().subscribe(result => {
      if (result) {
+       console.log(result);
        // tslint:disable-next-line:no-shadowed-variable
        this.movieservice.insertMovieReview(result).subscribe(movie => {
          const index = this.allMovies.findIndex(element => element.id === movie.id);      // find the index of the movie

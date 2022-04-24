@@ -1,1 +1,14 @@
-<h2>Personal Rating: {{calcRating}}</h2>
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Average Rating: {{calcRating}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card>
+      <mat-card-content>
+        <p *ngFor="let rating of config">{{rating.category}}: {{rating.value}}</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>
