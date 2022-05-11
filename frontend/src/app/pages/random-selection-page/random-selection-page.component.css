@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800&display=swap');
 html, body { height: 100%;font-family: 'Raleway', sans-serif; }
-body { margin: 0; background: #F0F3F5;}
+body {
+  margin: 0;
+  background: #F0F3F5;
+}
 h1{
   margin: 0;
   text-align: center;
@@ -80,6 +83,20 @@ h3{
 .column{
   width: 80%;
 }
+
+.succubi-right {
+  max-height: 90vh;
+  position: absolute;
+  right: 0;
+}
+
+.succubi-left {
+  max-height: 90vh;
+  position: absolute;
+  left: 0;
+  transform: scaleX(-1);
+}
+
 @media(min-width:820px){
   .main{
     width: 100%;
@@ -89,10 +106,12 @@ h3{
   }
   .column{
     width: 22%;
-    margin-left: 60px;
-    margin-right: 60px;
     border-radius: 12px;
     border: 3px solid white;
+  }
+  .column:nth-child(4) {
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .watching {
     border-radius: 12px;
