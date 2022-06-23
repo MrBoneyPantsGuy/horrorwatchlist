@@ -1,22 +1,22 @@
-<h2 mat-dialog-title>Check availability for {{data.title}}</h2>
+<h2 mat-dialog-title><button mat-raised-button color="primary" (click)="checkAvailability(data.id);">Check availability for {{data.title}}</button></h2>
 <mat-dialog-content>
-  <button mat-raised-button color="primary" (click)="checkAvailability(data.id);">Check availability</button>
   <mat-divider></mat-divider>
-  <mat-card>
-    <mat-card-title>On BFlix I found...</mat-card-title>
-    <mat-card-content>
-      <ul>
-        <li *ngFor="let result of resultsB; let i = index;"><a href="{{result.link}}" target="_blank">{{result.title}}</a></li>
-      </ul>
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-title>On SockShare I found...</mat-card-title>
-    <mat-card-content>
-      <ul>
-        <li *ngFor="let result of resultsS; let i = index;"><a href="{{result.link}}" target="_blank">{{result.title}}</a></li>
-      </ul>
-    </mat-card-content>
-  </mat-card>
+  <h3>BFlix <mat-icon class="green" *ngIf="resultsB.length > 0">done</mat-icon><mat-icon *ngIf="resultsB.length == 0">not_interested</mat-icon><mat-progress-bar *ngIf="loadingB" mode="indeterminate"></mat-progress-bar></h3>
+  <mat-grid-list cols="5" rowHeight="200px">
+    <mat-grid-tile *ngFor="let result of resultsB;">
+      <a href="{{result.link}}" target="_blank" matTooltip="{{result.title}} with an Accuracy of {{result.similarity}}">
+        <img src="{{result.poster}}" height="200px">
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-divider></mat-divider>
+  <h3>SockShare <mat-icon class="green" *ngIf="resultsS.length > 0">done</mat-icon><mat-icon *ngIf="resultsS.length == 0">not_interested</mat-icon><mat-progress-bar *ngIf="loadingS" mode="indeterminate"></mat-progress-bar></h3>
+  <mat-grid-list cols="5" rowHeight="200px">
+    <mat-grid-tile *ngFor="let result of resultsS;">
+      <a href="{{result.link}}" target="_blank" matTooltip="{{result.title}} with an Accuracy of {{result.similarity}}">
+        <img src="{{result.poster}}" height="200px">
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
 </mat-dialog-content>
 

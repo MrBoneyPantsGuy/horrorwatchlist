@@ -12,7 +12,7 @@ export class AvailabilityService {
 
   constructor(http: HttpClient) { this.client = http; }
 
-  checkAvailability(id): Observable<HttpResponse<any>> {
-    return this.client.post('/api/movies/availability', {id: id}, {observe: 'response'});
+  checkAvailability(id, site): Observable<HttpResponse<any>> {
+    return this.client.post('/api/movies/availability', {id: id, site: site}, {observe: 'response'});
   }
 }

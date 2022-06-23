@@ -79,7 +79,7 @@ export class ListOverviewPageComponent implements OnInit, AfterViewInit {
 
   availabilityCheckDialog(movie: Movie): void {
     const dialogRef = this.dialog.open(AvailabilityCheckComponent, {
-      width: '500px',
+      width: '800px',
       data: movie
     });
 

@@ -39,6 +39,7 @@ import { MovieFiltersComponent } from './components/movie-filters/movie-filters.
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { AvailabilityCheckComponent } from './components/availability-check/availability-check.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -59,31 +60,32 @@ import { AvailabilityCheckComponent } from './components/availability-check/avai
     MovieFiltersComponent,
     AvailabilityCheckComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRouting,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatDialogModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatTableModule,
-    MatSortModule,
-    MatListModule,
-    ClipboardModule,
-    MatProgressSpinnerModule,
-    MatSlideToggleModule,
-    MatGridListModule,
-    MatTooltipModule,
-    MatTabsModule,
-    MatExpansionModule,
-    MatSliderModule,
-    MatSelectModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRouting,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCardModule,
+        MatDialogModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatTableModule,
+        MatSortModule,
+        MatListModule,
+        ClipboardModule,
+        MatProgressSpinnerModule,
+        MatSlideToggleModule,
+        MatGridListModule,
+        MatTooltipModule,
+        MatTabsModule,
+        MatExpansionModule,
+        MatSliderModule,
+        MatSelectModule,
+        MatProgressBarModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

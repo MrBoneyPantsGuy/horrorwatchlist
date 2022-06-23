@@ -15,6 +15,7 @@
     "express-session": "^1.17.2",
     "multer": "^1.4.3",
     "ngx-star-rating": "^2.1.0",
+    "string-similarity": "^4.0.4",
     "puppeteer": "^14.4.1",
     "puppeteer-extra": "^3.3.0",
     "puppeteer-extra-plugin-adblocker": "^2.13.0",
