@@ -1,0 +1,31 @@
+<div class="filters">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Use Filters!
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+        <label for="amountOfMovies">Number of Movies </label>
+        <mat-select id="amountOfMovies" (valueChange)="updateAmount($event.value)">
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+        </mat-select>
+      </div>
+      <div>
+        <label for="min_rating">Minimum Rating </label>
+        <mat-slider id="min_rating" min="1" max="10" step="0.5" (input)="updateMinRating($event.value)"></mat-slider>
+        <span>{{minRating}}</span>
+      </div>
+      <div>
+        <label for="minReleaseDate">Release Date </label>
+        <input id="minReleaseDate" matInput type="date"/>
+      </div>
+      <span>
+        <button mat-raised-button color="primary">Apply filters!</button>
+      </span>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

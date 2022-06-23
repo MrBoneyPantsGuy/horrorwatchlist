@@ -1,0 +1,9 @@
+.filters {
+  margin-bottom: 1em;
+  margin-top: -20px;
+}
+
+mat-expansion-panel {
+  background: #2C5364;
+  color: white;
+}

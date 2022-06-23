@@ -11,7 +11,7 @@ export class MovieService {
   client: HttpClient;
   guard: AuthGuardService;
 
-  constructor(http: HttpClient) {this.client = http;}
+  constructor(http: HttpClient) { this.client = http; }
 
   // tslint:disable-next-line:max-line-length
   getAllMovies(): Observable<Movie[]>{ // fetches all Movies on the list from the backend, interprets the result as Movie[] and returns it as an observable

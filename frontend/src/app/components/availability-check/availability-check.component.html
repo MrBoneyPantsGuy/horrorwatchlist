@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Check availability for {{data.title}}</h2>
+<mat-dialog-content>
+  <button mat-raised-button color="primary" (click)="checkAvailability(data.id);">Check availability</button>
+  <mat-divider></mat-divider>
+  <mat-card>
+    <mat-card-title>On BFlix I found...</mat-card-title>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let result of resultsB; let i = index;"><a href="{{result.link}}" target="_blank">{{result.title}}</a></li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>On SockShare I found...</mat-card-title>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let result of resultsS; let i = index;"><a href="{{result.link}}" target="_blank">{{result.title}}</a></li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+

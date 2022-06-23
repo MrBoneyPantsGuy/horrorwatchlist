@@ -2,6 +2,8 @@ const Movie = require('../models/Movie');
 const axios = require('axios');
 const storage = require('../services/storage');
 const movieSelection = require('../services/movieSelection');
+const availability = require('../services/availability-service');
+const {json} = require('express');
 
 exports.addMovie = async (req, res) => {
     const movieList = req.app.get('movieList');
@@ -170,5 +172,25 @@ exports.refreshMovie = async (req, res) => {
         }).catch((err) => {
             console.error(err);
         });
+    }
+}
+
+exports.checkAvailability = async (req, res) => {
+    let movieList = req.app.get('movieList');
+    const id = req.body.id;
+    let foundIndex = movieList.findIndex(movie => movie.id === id);
+    if(foundIndex === -1) {
+        console.log("No such movie on the list!");
+        res.status(404).send("No such movie on the list!");
+    } else {
+        const title = movieList[foundIndex].title;
+        const searchResultBFLIX = await availability.checkBFLIX(title);
+        const searchResultSockShare = await availability.checkSockShare(title)
+        const jsonResult = {
+            "BFLIX": searchResultBFLIX.slice(0, 5),
+            "SockShare": searchResultSockShare.slice(0, 5)
+        }
+        console.log(jsonResult);
+        res.status(200).send(jsonResult);
     }
 }

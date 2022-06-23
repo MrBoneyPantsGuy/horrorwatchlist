@@ -7,6 +7,8 @@ import {MatSort} from '@angular/material/sort';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import localeDeExtra from '@angular/common/locales/extra/de';
+import {AvailabilityCheckComponent} from '../../components/availability-check/availability-check.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-list-overview-page',
@@ -24,7 +26,7 @@ export class ListOverviewPageComponent implements OnInit, AfterViewInit {
   @ViewChild(MatTable) table: MatTable<Movie>;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, public dialog: MatDialog) {
     this.movieservice = new MovieService(http);
     registerLocaleData(localeDe, 'de-DE', localeDeExtra);
   }
@@ -73,5 +75,19 @@ export class ListOverviewPageComponent implements OnInit, AfterViewInit {
 
   toggleDisplay(): void {
     this.displayWatched = !this.displayWatched;
+  }
+
+  availabilityCheckDialog(movie: Movie): void {
+    const dialogRef = this.dialog.open(AvailabilityCheckComponent, {
+      width: '500px',
+      data: movie
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // TODO: store availabilty in movie object
+        console.log('Available on these sites...');
+      }
+    });
   }
 }

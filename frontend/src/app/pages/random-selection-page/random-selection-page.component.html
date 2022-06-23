@@ -1,7 +1,11 @@
+<img class="succubi-left" src="./assets/images/succubus_left_transparent.png" alt="succubus">
+<img class="succubi-right" src="./assets/images/succubus_right_transparent.png" alt="succubus">
+
 <div class="container">
+  <!--div class="filterArea">
+    <app-movie-filters></app-movie-filters>
+  </div-->
   <div class="main">
-    <img class="succubi-left" src="./assets/images/succubi_right_transparent.png">
-    <img class="succubi-right" src="./assets/images/succubi_right_transparent.png">
     <div class="column" *ngFor="let movie of movies; let i = index;" [class.watching]="watched[i] == true">
       <mat-card class="example-card bg-{{i+1}}">
         <mat-icon class="app-icon lock">lock_open</mat-icon>

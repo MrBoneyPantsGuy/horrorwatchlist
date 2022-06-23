@@ -35,6 +35,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ReviewCalcComponent } from './components/review-calc/review-calc.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MovieFiltersComponent } from './components/movie-filters/movie-filters.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSelectModule } from '@angular/material/select';
+import { AvailabilityCheckComponent } from './components/availability-check/availability-check.component';
 
 @NgModule({
   declarations: [
@@ -51,31 +55,35 @@ import { MatExpansionModule } from '@angular/material/expansion';
     ReviewPageComponent,
     ReviewDialogComponent,
     RatingComponent,
-    ReviewCalcComponent
+    ReviewCalcComponent,
+    MovieFiltersComponent,
+    AvailabilityCheckComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRouting,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatCardModule,
-        MatDialogModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatTableModule,
-        MatSortModule,
-        MatListModule,
-        ClipboardModule,
-        MatProgressSpinnerModule,
-        MatSlideToggleModule,
-        MatGridListModule,
-        MatTooltipModule,
-        MatTabsModule,
-        MatExpansionModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRouting,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatTableModule,
+    MatSortModule,
+    MatListModule,
+    ClipboardModule,
+    MatProgressSpinnerModule,
+    MatSlideToggleModule,
+    MatGridListModule,
+    MatTooltipModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatSliderModule,
+    MatSelectModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

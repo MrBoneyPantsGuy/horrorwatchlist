@@ -39,6 +39,7 @@
       <button mat-raised-button color="warn" (click)="delete(element.id)">Delete</button>
       <button [class.show]="element.watched == false" [class.hide]="element.watched == true" mat-raised-button color="primary" (click)="toggle(element.id)">Watch</button>
       <button [class.show]="element.watched == true" [class.hide]="element.watched == false" mat-raised-button color="primary" (click)="toggle(element.id)">Unwatch</button>
+      <button mat-raised-button color="Basic" (click)="availabilityCheckDialog(element);">Check</button>
       <mat-icon [class.show]="refreshing[i] == false" [class.hide]="refreshing[i] == true" class="refresh-icon" (click)="refresh(element.id, i)">refresh</mat-icon>
       <mat-spinner [class.show]="refreshing[i] == true" [class.hide]="refreshing[i] == false" id="refresh-spinner " class="refresh-spinner" color="default" diameter="24"></mat-spinner>
     </td>
