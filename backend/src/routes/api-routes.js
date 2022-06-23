@@ -20,6 +20,6 @@ router.post('/movies/id', checkAuthorization(), movieApi.insertPersonalReview); 
 router.put('/movies/toggle/id', checkAuthorization(), movieApi.watchMovie);         // watch or unwatch a movie via its ID
 router.put('/movies/id', checkAuthorization(), movieApi.refreshMovie);              // refresh a movies changing data like votes and rating, but keep the personally stored values
 router.delete('/movies/:id', checkAuthorization(), movieApi.deleteMovie);           // angular httpclient.delete() does not support sending a body => using path variable instead
-router.post('/movies/availability', movieApi.checkAvailability) // check if the movie is available on the usual sites
+router.post('/movies/availability', checkAuthorization(), movieApi.checkAvailability); // check if the movie is available on the usual sites
 
 module.exports = router;

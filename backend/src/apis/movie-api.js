@@ -3,7 +3,6 @@ const axios = require('axios');
 const storage = require('../services/storage');
 const movieSelection = require('../services/movieSelection');
 const availability = require('../services/availability-service');
-const {json} = require('express');
 
 exports.addMovie = async (req, res) => {
     const movieList = req.app.get('movieList');
@@ -192,7 +191,7 @@ exports.checkAvailability = async (req, res) => {
             searchResult = await availability.checkSockShare(title)
         }
         const jsonResult = {
-            "data": searchResult.slice(0, 5),
+            "data": searchResult.slice(0, 5)
         }
         console.log(jsonResult);
         res.status(200).send(jsonResult);
