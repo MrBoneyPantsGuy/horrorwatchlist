@@ -1,6 +1,8 @@
 /**
  * this model specifies the format to exchange credentials with the backend
  */
+import { Review } from './Review';
+
 export class Movie{
   constructor(
     public id: string,
@@ -12,7 +14,7 @@ export class Movie{
     public imdbLink: string,
     public posterLink: string,
     public watched: boolean,
-    public personalRating: object,
+    public personalRating: Review,
     public votes: string,
     public genre: string,
     public plot: string,

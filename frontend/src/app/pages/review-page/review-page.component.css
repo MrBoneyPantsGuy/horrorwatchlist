@@ -12,6 +12,11 @@ mat-card-actions {
   padding-bottom: 20px;
 }
 
+mat-card-content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mat-card-image {
   width: 175px;
   display: block;

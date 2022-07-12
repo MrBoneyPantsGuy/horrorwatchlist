@@ -26,12 +26,23 @@ export class ReviewPageComponent implements OnInit {
       this.allMovies = this.allMovies.filter( movie => movie.watched === true && Object.keys(movie.personalRating).length === 0);
     });
     this.movieservice.getAllMovies().subscribe(movies => this.allReviews = movies, (error) => console.log(error), () => {
-      this.allReviews = this.allReviews.filter( movie => movie.watched === true && Object.keys(movie.personalRating).length > 0);
+      this.allReviews = this.allReviews
+        .filter( movie => movie.watched === true && Object.keys(movie.personalRating).length > 0)
+        .sort( (movieA, movieB) =>
+          new Date(movieB.personalRating.reviewedWhen).getTime() -
+          new Date(movieA.personalRating.reviewedWhen).getTime());
     });
   }
 
   onResize(event): void {
     this.breakpoint = (event.target.innerWidth <= 1800) ? (event.target.innerWidth <= 1500) ? 3 : 4 : 5;
+  }
+
+  displayDate(jsonDateString): string {
+    const dateString = new Date(jsonDateString);
+    return dateString.toLocaleDateString('de-DE',
+{year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}
+      ) + ' Uhr';
   }
 
   openDialog(movie: Movie): void {
@@ -47,6 +58,9 @@ export class ReviewPageComponent implements OnInit {
        this.movieservice.insertMovieReview(result).subscribe(movie => {
          const index = this.allMovies.findIndex(element => element.id === movie.id);      // find the index of the movie
          this.allReviews.push(this.allMovies[index]);                                     // push reviewed movie into reviews
+         this.allReviews.sort( (movieA, movieB) =>
+           new Date(movieB.personalRating.reviewedWhen).getTime() -
+           new Date(movieA.personalRating.reviewedWhen).getTime());
          this.allMovies.splice(index, 1);                                       // delete reviewed movie from movies without review
        });
      }

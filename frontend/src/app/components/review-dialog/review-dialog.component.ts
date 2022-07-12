@@ -26,7 +26,7 @@ export class ReviewDialogComponent implements OnInit {
       { value: 1, category: 'Horror', icons: ['star', 'star_border'], tooltip: 'How was the horror?' },
       { value: 1, category: 'Fun', icons: ['star', 'star_border'], tooltip: 'How much fun did you have?' },
       { value: 1, category: 'Style', icons: ['star', 'star_border'], tooltip: 'Did you like the style?' },
-      { value: 1, category: 'Hot', icons: ['star', 'star_border'], tooltip: 'How hot where the actresses and did you see them naked?' },
+      { value: 1, category: 'Hot', icons: ['star', 'star_border'], tooltip: 'How hot were the actresses and did you see them naked?' },
       { value: 1, category: 'Seb-Rating', icons: ['star', 'star_border'], tooltip: 'This is Sebastians personal rating for the movie.' },
       { value: 1, category: 'Valle-Rating', icons: ['star', 'star_border'], tooltip: 'This is Valentins personal rating for the movie.' }
     ];
@@ -50,7 +50,7 @@ export class ReviewDialogComponent implements OnInit {
   save(): any {
     const date = new Date();
     this.data.personalRating = {
-      reviewedWhen: date.toLocaleString('de-DE'),
+      reviewedWhen: date.toJSON(),
       config: this.ratings
     };
     this.dialogRef.close(this.data);

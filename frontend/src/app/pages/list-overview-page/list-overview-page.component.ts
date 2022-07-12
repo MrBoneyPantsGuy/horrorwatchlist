@@ -20,6 +20,7 @@ export class ListOverviewPageComponent implements OnInit, AfterViewInit {
   displayWatched = false;
   refreshing: boolean[];
   allMovies: Movie[];
+  movieCount: number;
   dataSource: MatTableDataSource<Movie> = new MatTableDataSource<Movie>();
   columnsToDisplay = ['position', 'title', 'year', 'director', 'runtime', 'rating', 'votes', 'poster', 'action'];
 
@@ -36,12 +37,21 @@ export class ListOverviewPageComponent implements OnInit, AfterViewInit {
     await this.movieservice.getAllMovies().subscribe(movies => this.dataSource.data = movies, (error) => console.log(error), () => {
       this.refreshing = new Array(this.dataSource.data.length).fill(false);
       this.dataSource.sort = this.sort;
+      this.countMovies();
     });
   }
 
   // tslint:disable-next-line:typedef
   async ngAfterViewInit() {
     console.log('AfterViewInit');
+  }
+
+  public countMovies(): void {
+    if (this.displayWatched) {
+      this.movieCount = this.dataSource.data.length;
+    } else {
+      this.movieCount = this.dataSource.data.filter(movie => movie.watched === false).length;
+    }
   }
 
   public async refresh(id, row): Promise<any> {
@@ -75,6 +85,7 @@ export class ListOverviewPageComponent implements OnInit, AfterViewInit {
 
   toggleDisplay(): void {
     this.displayWatched = !this.displayWatched;
+    this.countMovies();
   }
 
   availabilityCheckDialog(movie: Movie): void {

@@ -8,7 +8,7 @@
             <mat-card-title>{{movie.title}}</mat-card-title>
             <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="{{movie.posterLink}}" width="100px" height="auto" alt="Movie Poster">
+          <a href="{{movie.imdbLink}}" target="_blank"><img mat-card-image src="{{movie.posterLink}}" width="100px" height="auto" alt="Movie Poster"></a>
           <mat-card-content>
             <p>{{movie.plot}}</p>
           </mat-card-content>
@@ -27,7 +27,10 @@
             <mat-card-title>{{movie.title}}</mat-card-title>
             <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="{{movie.posterLink}}" width="100px" height="auto" alt="Movie Poster">
+          <mat-card-content>
+            <a href="{{movie.imdbLink}}" target="_blank"><img mat-card-image src="{{movie.posterLink}}" width="100px" height="auto" alt="Movie Poster"></a>
+            <p>{{displayDate(movie.personalRating.reviewedWhen)}}</p>
+          </mat-card-content>
           <app-review-calc [config]="movie.personalRating.config"></app-review-calc>
         </mat-card>
     </div>
