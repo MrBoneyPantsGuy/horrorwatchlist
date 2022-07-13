@@ -1,0 +1,12 @@
+<mat-tab-group dynamicHeight>
+  <mat-tab label="Full Ranking">
+    <h1>List of all Users and their Crowns</h1>
+    <div class="main-grid">
+      <app-user-crowns-display class="user-container" *ngFor="let user of users" [user]="user"></app-user-crowns-display>
+    </div>
+
+  </mat-tab>
+  <mat-tab label="Active Session">
+    <h1>Whats going on here?</h1>
+  </mat-tab>
+</mat-tab-group>

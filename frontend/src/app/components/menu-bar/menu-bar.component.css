@@ -10,6 +10,11 @@
   flex: 1 1 auto;
 }
 
+.centered-icon {
+  display: flex;
+  align-items: center;
+}
+
 .app-icon, span.user-displayname, span.appName{
   margin-right: 6px;
 }

@@ -1,5 +1,3 @@
-const Moviestate = require('./MovieState');
-
 class Movie {
      constructor(id, title, year, director, rating, runtime, imdbLink, posterLink, watched, personalRating, votes, genre, plot, actors, movieState) {
          this.id = id;

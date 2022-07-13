@@ -9,6 +9,7 @@ import {ListOverviewPageComponent} from './pages/list-overview-page/list-overvie
 import {RandomSelectionPageComponent} from './pages/random-selection-page/random-selection-page.component';
 import {NotFoundPageComponent} from './pages/not-found-page/not-found-page.component';
 import {ReviewPageComponent} from './pages/review-page/review-page.component';
+import { CrownPageComponent } from './pages/crown-page/crown-page.component';
 
 /*
   This array holds the relation of paths and components which angular router should resolve.
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'list', component: ListOverviewPageComponent, canActivate: [AuthGuardService]},
   {path: 'select', component: RandomSelectionPageComponent, canActivate: [AuthGuardService]},
   {path: 'review', component: ReviewPageComponent, canActivate: [AuthGuardService]},
+  {path: 'crowns', component: CrownPageComponent, canActivate: [AuthGuardService]},
   {path: '', component: LandingPageComponent, canActivate: [AuthGuardService]},
   {path: '**', component: NotFoundPageComponent} // these entries are matched from top to bottom => not found should be the last entry
 ];

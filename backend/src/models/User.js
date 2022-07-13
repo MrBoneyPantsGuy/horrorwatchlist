@@ -1,5 +1,5 @@
 class User {
-    constructor(username, passwordHash, loginAttempts, success, disabled, email, isAdmin) {
+    constructor(username, passwordHash, loginAttempts, success, disabled, email, isAdmin, crowns) {
         this.username = username;
         this.passwordHash = passwordHash;
         this.loginAttempts = loginAttempts;
@@ -7,6 +7,7 @@ class User {
         this.success = success;
         this.email = email;
         this.isAdmin = isAdmin;
+        this.crowns = crowns;
     }
 }
 

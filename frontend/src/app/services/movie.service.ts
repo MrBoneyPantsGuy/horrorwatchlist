@@ -20,7 +20,7 @@ export class MovieService {
 
   getAllUnwatchedMovies(): Observable<HttpResponse<Movie[]>> {
     return this.client.get<Movie[]>('/api/movies/unwatched', {observe: 'response'});
-}
+  }
 
   getRandomMovies(): Observable<HttpResponse<Movie[]>> {
     return this.client.get<Movie[]>('/api/movies/random', {observe: 'response'});

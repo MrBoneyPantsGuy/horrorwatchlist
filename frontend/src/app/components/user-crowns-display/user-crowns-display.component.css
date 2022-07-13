@@ -1,0 +1,10 @@
+mat-card {
+  background-color: #82919f;
+  display: inline-block;
+  padding-top: 0 !important;
+}
+
+.middle {
+  margin-left: 5px;
+  margin-right: 5px;
+}

@@ -40,6 +40,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { AvailabilityCheckComponent } from './components/availability-check/availability-check.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CrownPageComponent } from './pages/crown-page/crown-page.component';
+import { CrownSessionDialogComponent } from './components/crown-session-dialog/crown-session-dialog.component';
+import { UserCrownsDisplayComponent } from './components/user-crowns-display/user-crowns-display.component';
+import { StackedCrownsComponent } from './components/stacked-crowns/stacked-crowns.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     RatingComponent,
     ReviewCalcComponent,
     MovieFiltersComponent,
-    AvailabilityCheckComponent
+    AvailabilityCheckComponent,
+    CrownPageComponent,
+    CrownSessionDialogComponent,
+    UserCrownsDisplayComponent,
+    StackedCrownsComponent
   ],
     imports: [
         BrowserModule,

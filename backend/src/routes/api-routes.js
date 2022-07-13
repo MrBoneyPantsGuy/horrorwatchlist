@@ -9,6 +9,10 @@ router.get('/login', authApi.isLoggedIn);                       // the function,
 
 const userApi = require('../apis/user-api');
 router.get('/user', userApi.getSelf);
+router.get('/users', checkAuthorization(), userApi.getAllUsers);
+router.post('/user/crowns', checkAuthorization(), userApi.incrementCrowns);
+router.post('/user/get/namedcrowns', checkAuthorization(), userApi.getNamedCrownsByUserID);
+router.post('/user/post/namedcrowns', checkAuthorization(), userApi.createNamedCrownForUser);
 
 const movieApi = require('../apis/movie-api');
 router.get('/movies', checkAuthorization(), movieApi.getMovies);                    // get all movies as json array from the list
