@@ -10,11 +10,7 @@ export class StackedCrownsComponent implements OnInit {
   @Input('crowns') numberOfCrowns;
   // tslint:disable-next-line:no-input-rename
   @Input('namedCrowns') namedCrowns;
-  helperArray: number[];
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

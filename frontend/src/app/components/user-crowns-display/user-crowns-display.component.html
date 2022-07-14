@@ -1,11 +1,11 @@
 <mat-card>
-  <app-stacked-crowns [crowns]="helperArray" [namedCrowns]="namedCrowns"></app-stacked-crowns>
+  <app-stacked-crowns class="crown-container" [crowns]="helperArray" [namedCrowns]="namedCrowns"></app-stacked-crowns>
   <mat-card-content>
-    <button mat-raised-button color="default" (click)="increment(-1)"><mat-icon>exposure_neg_1</mat-icon></button>
+    <button mat-raised-button color="default" class="left" (click)="increment(-1)"><mat-icon>exposure_neg_1</mat-icon></button>
     <button mat-raised-button color="default" class="middle">{{user.crowns}} Crowns</button>
-    <button mat-raised-button color="default" (click)="increment(1)"><mat-icon>exposure_plus_1</mat-icon></button>
+    <button mat-raised-button color="default" class="right" (click)="increment(1)"><mat-icon>exposure_plus_1</mat-icon></button>
   </mat-card-content>
   <mat-card-footer style="text-align:center;">
-    <mat-card-title>{{capitalize(user.username)}}</mat-card-title>
+    <mat-card-title>{{capitalize(user.nickname)}}</mat-card-title>
   </mat-card-footer>
 </mat-card>

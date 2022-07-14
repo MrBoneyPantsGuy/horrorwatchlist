@@ -38,7 +38,7 @@ export class UserCrownsDisplayComponent implements OnInit {
       (success) => {
         this.user.crowns = this.user.crowns + amount;
         if (amount > 0) {
-          this.helperArray.push(0);
+          this.helperArray.push(this.helperArray.length);
           this.playSound('../../assets/sounds/pop.mp3');
         } else {
           this.helperArray.pop();
@@ -50,7 +50,11 @@ export class UserCrownsDisplayComponent implements OnInit {
     );
   }
 
-  async createCrown(crown): Promise<any> {
+  createDefaultCrown(): void {
+    const crown = new NamedCrown(undefined, this.user._id, 'default', new Date().toJSON(), undefined, undefined, undefined);
+  }
+
+  async createNamedCrown(crown): Promise<any> {
     await this.userService.postNamedCrown(crown).toPromise().then();
   }
 

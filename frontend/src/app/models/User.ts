@@ -8,6 +8,7 @@ export class User{
     public username: string,
     public email: string,
     public isAdmin: boolean,
-    public crowns: number
+    public crowns: number,
+    public nickname: string
   ) {  }
 }

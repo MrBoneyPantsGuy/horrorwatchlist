@@ -8,9 +8,10 @@ export class NamedCrown {
     // tslint:disable-next-line:variable-name
     public _id: string,
     public userID: string,
-    public date: string,
     public type: string,
+    public date: string,
     public context: string,
     public line: string,
+    public url: string
   ) {  }
 }

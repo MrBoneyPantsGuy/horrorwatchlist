@@ -1,11 +1,32 @@
 .grid {
   display: grid;
   justify-items: center;
+  grid-template-columns: auto auto auto auto auto;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 100px;
+}
+
+.flexed-crown {
+  flex-basis: 20%;
 }
 
 .crown {
   width: 30px;
   height: auto;
+  display: inline-block;
 }
+
+
+
+
 
 
